@@ -5,9 +5,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Página de feedbacks</title>
+    <!-- usando o jinja para poder formatar com o css e python -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/style.css') }}">
 </head>
 <body>
-    
+    <section class="container-main">
+        <section class="container-main__feedbacks">
+            <!-- titulo -->
+            <h1 class="title">Página de feedbacks</h1>
+            <hr>
+            <!-- formulario -->
+            <form action="/post/mensagem" class="feedbacks__form" method="post">
+                <!-- campo usuario -->
+                <label for="nome_user" class="lbl-user">Usuário</label>
+                <input type="text" name="nome_user" id="nome_user" placeholder="Digite seu nome de Usuário" class="input-user">
+                <!-- campo comentario -->
+                <label for="comentario" class="lbl-coment">Comentário</label>
+                <textarea name="comentario" id="comentario" cols="40" rows="15" placeholder="Digite um comentário" class="input-coment"></textarea>
+                <!-- botao -->
+                <button type="submit" class="btn-send">Enviar comentário</button>
+
+            </form>
+
+            <section class="container-main__history">
+                <h2 class="subtitle">Últimos comentários 👇</h2>
+            </section>
+        </section>
+    </section>
 </body>
 </html>
