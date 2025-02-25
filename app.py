@@ -20,7 +20,7 @@ def post_mensagem():
 
     #criando a conexao
     conexao = mysql.connector.connect(
-        hostname = "localhost",
+        host = "localhost",
         port = 3306,
         user = "root",
         password = "root",
