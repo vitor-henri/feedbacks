@@ -56,4 +56,33 @@
 
 .lbl-user, .lbl-coment{
     color: var(--title);
+    font-size: large;
+    font-weight: 700;
+}
+
+.input-user, .input-coment{
+    border-radius: 5px;
+}
+
+.btn-send, .btn-clear{
+    color: white;
+    width: 300px;
+    height: 100px;
+    border-radius: 5px;
+}
+
+.btn-clear{
+    background-color: red;
+}
+
+.btn-send{
+    background-color: rgb(66, 255, 41);
+}
+
+.btn-send:hover{
+    background-color: rgb(50, 192, 31);
+}
+
+.btn-clear:hover{
+    background-color: rgb(167, 4, 4);
 }

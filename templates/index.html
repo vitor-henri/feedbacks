@@ -19,13 +19,13 @@
             <form action="/post/mensagem" class="feedbacks__form" method="post">
                 <!-- campo usuario -->
                 <label for="nome_user" class="lbl-user">Usuário</label>
-                <input type="text" name="nome_user" id="nome_user" placeholder="Digite seu nome de Usuário" class="input-user">
+                <input type="text" name="nome_user" id="nome_user" placeholder="Digite seu nome de Usuário" class="input-user" required>
                 <!-- campo comentario -->
                 <label for="comentario" class="lbl-coment">Comentário</label>
-                <textarea name="comentario" id="comentario" cols="40" rows="15" placeholder="Digite um comentário" class="input-coment"></textarea>
+                <textarea name="comentario" id="comentario" cols="40" rows="15" placeholder="Digite um comentário" class="input-coment" required></textarea>
                 <!-- botao -->
                 <button type="submit" class="btn-send">Enviar comentário</button>
-
+                <button class="btn-clear">Limpar comentário</button>
             </form>
 
             <section class="container-main__history">
