@@ -37,5 +37,9 @@ def delete_mensagem(codigo):
     Comment.deletar_mensagem(codigo)
     return redirect("/")
 
+@app.route("/put/curtida/mensagem/<codigo>")
+def curtir_mensagem(codigo):
+    Comment.curtir_mensagem(codigo)
+    return redirect("/")
 
 app.run(debug=True, host='0.0.0.0', port=8080)

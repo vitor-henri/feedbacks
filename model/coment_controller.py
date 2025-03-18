@@ -62,6 +62,24 @@ class Comment:
             conexao_db.commit()
 
             cursor.close()
+
             conexao_db.close()
         except:
             return False
+
+    def curtir_mensagem(codigo):
+        try:
+            conexao_db = Connection.create()
+
+            cursor = conexao_db.cursor()
+
+            cursor.execute('UPDATE tb_comentarios SET curtidas = +1 WHERE cod_comentario = %s;', (codigo))
+
+            conexao_db.commit()
+
+            cursor.close()
+
+            conexao_db.close()
+        except:
+            return False
+        
