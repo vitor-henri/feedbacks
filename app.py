@@ -1,53 +1,35 @@
 from flask import Flask, render_template, request, redirect
-import datetime
-import mysql.connector
+from model.coment_controller import Comment
+
 
 app = Flask(__name__)
+
+comentarios = []
 
 # criando a rota para a pagina principal
 @app.route("/", methods=["GET"])
 def pag_main():
-    return render_template("index.html")
+
+    comentarios = Comment.get_comentarios()
+
+    return render_template("index.html", comentarios = comentarios)
 
 @app.route("/post/mensagem", methods=["POST"])
 def post_mensagem():
     # capturando as informações do usuario
-    nome_user = request.form.get("nome_user")
-    comentario = request.form.get("comentario")
-    data_comentario = datetime.datetime.today()
-
-    #cadastrando as informações do usuario no MYSQL (banco de dados)
-
-    #criando a conexao
-    conexao = mysql.connector.connect(
-        host = "localhost",
-        port = 3306,
-        user = "root",
-        password = "root",
-        database = "db_feedbacks")
+    nome_user = request.form.get("input_user")
+    comentario = request.form.get("input_comentario")
     
-    # criando o cursor ou seja o cara que vai do python ate o banco de dados como se fosse uma ponte
-    cursor = conexao.cursor()
+    if (Comment.create(nome_user, comentario)):
 
-    # criando o comando SQL que sera executado no SQL
-    sql = """INSERT INTO tb_feedback
-        (name_user, comentario, data_comentario)
-    VALUES
-        (%s, %s, %s)"""
+        # Redirecionando de volta
+
+        Comment.get_comentarios()
+
+        return redirect('/')
     
-    # os %s sao os dados que serao informados no SQl como se fosse uma variavel entao usamos uma lista para guardar os dados 
-    valores = [nome_user, comentario, data_comentario]
+    else:
 
-    # executando o comando SQL com o cursor
-    cursor.execute(sql, valores)
+        return '<a href="/">Erro. Tente Novamente.</a>'
 
-    # confirmando a alteração no MYSQL como se fossse um comit do github
-    conexao.commit()
-
-    # fechando a conexao e o cursor
-    cursor.close()
-    conexao.close()
-
-    return redirect("/")
-
-app.run(debug=True)
+app.run(debug=True, host='0.0.0.0', port=8080)

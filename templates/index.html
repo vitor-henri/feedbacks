@@ -17,19 +17,57 @@
             <hr>
             <!-- formulario -->
             <form action="/post/mensagem" class="feedbacks__form" method="post">
+
                 <!-- campo usuario -->
-                <label for="nome_user" class="lbl-user">Usuário</label>
-                <input type="text" name="nome_user" id="nome_user" placeholder="Digite seu nome de Usuário" class="input-user" required>
+                <label for="input_user" class="lbl-user">Usuário</label>
+                <input type="text" name="input_user" id="input_user" placeholder="Digite seu nome de Usuário" class="input-user" required>
+
                 <!-- campo comentario -->
-                <label for="comentario" class="lbl-coment">Comentário</label>
-                <textarea name="comentario" id="comentario" cols="40" rows="15" placeholder="Digite um comentário" class="input-coment" required></textarea>
+                <label for="input_comentario" class="lbl-coment">Comentário</label>
+                <textarea name="input_comentario" id="input_comentario" cols="40" rows="15" placeholder="Digite um comentário" class="input-coment" required></textarea>
+                
                 <!-- botao -->
                 <button type="submit" class="btn-send">Enviar comentário</button>
-                <button class="btn-clear">Limpar comentário</button>
+                <button class="btn-clear" type="reset">Limpar comentário</button>
             </form>
 
             <section class="container-main__history">
                 <h2 class="subtitle">Últimos comentários 👇</h2>
+                <div class="main__section main__section--comments">
+
+                    <section class="comments-container">
+        
+                        <h1 class="comments__title">Comentários</h1>
+        
+                        <div class="comments">
+        
+                            {% for comentario in comentarios %}
+            
+                            <article class="comment">
+            
+                                <header class="comment__header">
+                                    <span class="comment__user">{{ comentario.nome }}</span>
+                                </header>
+            
+                                <main class="comment__content">
+                                    <p class="comment__message">{{ comentario.comentario }}</p>
+                                    <button class="commnet_delete">Deletar</button>
+                                </main>
+        
+                                <footer class="comment__footer">
+                                    {{ comentario.data_hora }}
+                                </footer>
+                                
+                            </article>
+            
+                            {% endfor %}
+            
+                        </div>
+        
+                    </section>            
+        
+                </div>
+        
             </section>
         </section>
     </section>

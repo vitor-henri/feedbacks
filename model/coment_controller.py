@@ -1,5 +1,5 @@
 from data.connection_controller import Connection
-
+from datetime import datetime
 class Comment:
 
     def create(name, comentario):
@@ -12,7 +12,7 @@ class Comment:
 
             cursor = conexao_db.cursor()
 
-            cursor.execute("INSERT INTO tb_feedback (name_user, comentario) VALUES (%s, %s);", (name, comentario))
+            cursor.execute("INSERT INTO tb_comentarios (nome, data_hora, comentario) VALUES (%s, %s, %s);", (name, datetime.now(), comentario))
 
             # Confirma a alteração
 
@@ -37,7 +37,7 @@ class Comment:
 
             cursor = conexao_db.cursor(dictionary=True)
 
-            cursor.execute('SELECT name_user, comentario, data_comentario FROM tb_feedback')
+            cursor.execute('SELECT nome, data_hora, comentario FROM tb_comentarios')
 
             comentarios_lista = cursor.fetchall()
 
