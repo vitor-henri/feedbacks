@@ -1,5 +1,6 @@
 from data.connection_controller import Connection
 from datetime import datetime
+
 class Comment:
 
     def create(name, comentario):
@@ -37,7 +38,7 @@ class Comment:
 
             cursor = conexao_db.cursor(dictionary=True)
 
-            cursor.execute('SELECT nome, data_hora, comentario FROM tb_comentarios')
+            cursor.execute('SELECT cod_comentario, nome, data_hora, comentario FROM tb_comentarios')
 
             comentarios_lista = cursor.fetchall()
 
@@ -49,3 +50,18 @@ class Comment:
         except:
 
             return []
+    
+    def deletar_mensagem(codigo):
+        try:
+            conexao_db = Connection.create()
+
+            cursor = conexao_db.cursor()
+
+            cursor.execute('DELETE FROM tb_comentarios WHERE cod_comentario = %s;', (codigo))
+
+            conexao_db.commit()
+
+            cursor.close()
+            conexao_db.close()
+        except:
+            return False
