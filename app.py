@@ -18,7 +18,7 @@ def pag_main():
 def post_mensagem():
     # capturando as informações do usuario
     nome_user = request.form.get("input_user")
-    comentario = request.form.get("input_comentario")
+    comentario = request.form.get("input_message")
     
     if (Comment.create(nome_user, comentario)):
 

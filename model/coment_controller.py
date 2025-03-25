@@ -56,8 +56,8 @@ class Comment:
             conexao_db = Connection.create()
 
             cursor = conexao_db.cursor()
-
-            cursor.execute('DELETE FROM tb_comentarios WHERE cod_comentario = %s;', (codigo))
+            # pelo fato de ser uma tupla precisamos de 2 valores porem só por uma virgula para dar certo
+            cursor.execute('DELETE FROM tb_comentarios WHERE cod_comentario = %s;', (codigo,))
 
             conexao_db.commit()
 
@@ -73,7 +73,23 @@ class Comment:
 
             cursor = conexao_db.cursor()
 
-            cursor.execute('UPDATE tb_comentarios SET curtidas = +1 WHERE cod_comentario = %s;', (codigo))
+            cursor.execute('UPDATE tb_comentarios SET curtidas = curtidas + 1 WHERE cod_comentario = %s;', (codigo,))
+
+            conexao_db.commit()
+
+            cursor.close()
+
+            conexao_db.close()
+        except:
+            return False
+        
+    def descurtir_mensagem(codigo):
+        try:
+            conexao_db = Connection.create()
+
+            cursor = conexao_db.cursor()
+
+            cursor.execute('UPDATE tb_comentarios SET curtidas = curtidas -1 WHERE cod_comentario = %s;', (codigo,))
 
             conexao_db.commit()
 
