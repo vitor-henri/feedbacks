@@ -1,0 +1,29 @@
+*{
+    /* Reset básico */
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    /* Fonte Padrão */
+
+    font-family: 'Montserrat', sans-serif;
+}
+
+.main{
+    width: 100vw;
+    height: 100vh;
+
+    background-color: #dc3545;
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.main__header{
+    
+}
+

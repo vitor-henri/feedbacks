@@ -14,31 +14,40 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
     <!-- Estilização da página -->
-
-    <link rel="stylesheet" href="{{ url_for('static', filename='style/index.css') }}" />
-
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/login.css') }}" />
+    <link rel="stylesheet" href="../static/style/login.css">
 </head>
 <body>
+
     <section class="main">
 
         <header class="main__header">
 
-            <h1>Bem-vindo(a) Faça Login ou cadastre-se</h1>
+            <h1>Bem-vindo(a) Faça Login ou Cadastre-se</h1>
 
         </header>
 
-        <main class="main__login">
-            <form class="form" action="/post/login" method="post">
+        <main class="main__page">
+
+            <form class="page__form" action="/post/login" method="post">
 
                 <label class="form__label" for="input__user">Usuário</label>
                 <input class="form__input" type="text" name="input__user" placeholder="Digite seu nome de usuario" maxlength="150" required>
                 
                 <label class="form__label" for="input__senha">Senha</label>
                 <input class="form__input" type="password" name="input__senha" placeholder="Digite sua senha" required>
-
             </form>
+
+            <div class="page__cadastro">
+                <button class="cadastro__btn">Cadastre-se</button>
+            </div>
         </main>
 
+        <footer class="rodape">
+            <span>&copf; Developed by Vitor</span>
+        </footer>
     </section>
+    
 </body>
 </html>
