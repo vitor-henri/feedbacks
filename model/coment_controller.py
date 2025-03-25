@@ -98,4 +98,5 @@ class Comment:
             conexao_db.close()
         except:
             return False
-        
+
+    

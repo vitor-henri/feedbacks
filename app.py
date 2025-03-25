@@ -1,3 +1,4 @@
+# Dev by Vitor
 from flask import Flask, render_template, request, redirect
 from model.coment_controller import Comment
 
@@ -12,7 +13,7 @@ def pag_main():
 
     comentarios = Comment.get_comentarios()
 
-    return render_template("index.html", comentarios = comentarios)
+    return render_template("main.html", comentarios = comentarios)
 
 @app.route("/post/comentarios", methods=["POST"])
 def post_mensagem():
