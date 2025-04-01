@@ -64,7 +64,9 @@ class Comment:
             cursor.close()
 
             conexao_db.close()
+
         except:
+
             return False
 
     def curtir_mensagem(codigo):
@@ -80,7 +82,9 @@ class Comment:
             cursor.close()
 
             conexao_db.close()
+
         except:
+
             return False
         
     def descurtir_mensagem(codigo):
@@ -96,7 +100,9 @@ class Comment:
             cursor.close()
 
             conexao_db.close()
+
         except:
+            
             return False
 
     
