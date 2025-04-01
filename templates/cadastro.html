@@ -5,8 +5,48 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro - Feedback</title>
+
+    <!-- Montserrat Font - Google CDN -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <!-- Estilização da página -->
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/cadastro.css') }}" />
+    <link rel="stylesheet" href="../static/style/cadastro.css">
+
 </head>
 <body>
-    
+    <section class="main">
+
+        <section class="main__site">
+            <header class="main__header">
+                <h1>Bem-vindo(a) a página de cadastro</h1>
+            </header>
+            <main class="main__page">
+                <form class="page__form" action="/post/cadastro" method="post">
+            
+                    <label class="form__label" for="input__nome">Nome</label>
+                    <input class="form__input" type="text" name="input__nome" placeholder="Digite seu nome">
+                    <label class="form__label" for="input__user">Login</label>
+                    <input class="form__input" type="text" name="input__user" placeholder="Digite seu nome de usuario" maxlength="150">
+            
+                    <label class="form__label" for="input__senha">Senha</label>
+                    <input class="form__input" type="password" name="input__senha" placeholder="Digite sua senha">
+
+                    <div class="cadastrar">
+                        <button class="cadastro__btn" type="submit">Cadastrar-se</button>
+                    </div>
+
+                </form>
+            </main>
+            <footer class="rodape">
+                <span>&copf; Developed by Vitor</span>
+            </footer>
+        </section>
+
+    </section>
 </body>
 </html>

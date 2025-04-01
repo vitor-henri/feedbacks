@@ -1,6 +1,7 @@
 # Dev by Vitor
 from flask import Flask, render_template, request, redirect
 from model.coment_controller import Comment
+from model.user_controller import User
 
 
 app = Flask(__name__)
@@ -8,7 +9,27 @@ app = Flask(__name__)
 comentarios = []
 
 # criando a rota para a pagina principal
-@app.route("/", methods=["GET"])
+@app.route("/")
+def pag_login():
+    return render_template("login.html")
+
+@app.route("/post/cadastro", methods=["POST"])
+def cadastrar_user():
+    
+    login = request.form.get("input__user")    
+    senha = request.form.get("input__senha")
+    nome = request.form.get("input__nome")
+
+    if(User.cadastrar_user(login, senha, nome)):
+
+        return redirect("login.html", login = login, senha = senha, nome = nome)
+    
+    else:   
+        return '<a href="/">Erro. Tente Novamente.</a>'
+    
+
+
+@app.route("/comentarios", methods=["GET"])
 def pag_main():
 
     comentarios = Comment.get_comentarios()
@@ -28,7 +49,7 @@ def post_mensagem():
 
         Comment.get_comentarios()
 
-        return redirect('/')
+        return redirect('/comentarios')
     
     else:
 

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro - Feedbacks</title>
+    <title>Login - Feedbacks</title>
 
     <!-- Montserrat Font - Google CDN -->
 
@@ -30,18 +30,20 @@
 
         <main class="main__page">
 
-            <form class="page__form" action="/post/login" method="post">
+            <form class="page__form" action="/post/cadastro" method="post">
 
                 <label class="form__label" for="input__user">Usuário</label>
-                <input class="form__input" type="text" name="input__user" placeholder="Digite seu nome de usuario" maxlength="150" required>
+                <input class="form__input" type="text" name="input__user" placeholder="Digite seu nome de usuario" maxlength="150">
                 
                 <label class="form__label" for="input__senha">Senha</label>
-                <input class="form__input" type="password" name="input__senha" placeholder="Digite sua senha" required>
+                <input class="form__input" type="password" name="input__senha" placeholder="Digite sua senha">
+
+                <div class="page__cadastro">
+                    <button class="cadastro__btn" type="submit">Cadastre-se</button>
+                </div>
+
             </form>
 
-            <div class="page__cadastro">
-                <button class="cadastro__btn">Cadastre-se</button>
-            </div>
         </main>
 
         <footer class="rodape">
