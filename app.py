@@ -15,6 +15,7 @@ def pag_main():
 
     return render_template("main.html", comentarios = comentarios)
 
+
 @app.route("/post/comentarios", methods=["POST"])
 def post_mensagem():
     # capturando as informações do usuario
