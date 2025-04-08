@@ -30,7 +30,7 @@
 
         <main class="main__page">
 
-            <form class="page__form" action="/post/cadastro" method="post">
+            <form class="page__form" action="/login" method="post">
 
                 <label class="form__label" for="input__user">Usuário</label>
                 <input class="form__input" type="text" name="input__user" placeholder="Digite seu nome de usuario" maxlength="150">
@@ -38,10 +38,15 @@
                 <label class="form__label" for="input__senha">Senha</label>
                 <input class="form__input" type="password" name="input__senha" placeholder="Digite sua senha">
 
+                <!-- Formulário de login -->
+                <button type="submit">Logar</button>
+                
+            </form>
+
+            <form class="page__cadastrar" action="/cadastro" method="get">
                 <div class="page__cadastro">
                     <button class="cadastro__btn" type="submit">Cadastre-se</button>
                 </div>
-
             </form>
 
         </main>
