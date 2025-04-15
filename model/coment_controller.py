@@ -105,4 +105,25 @@ class Comment:
             
             return False
 
-    
+    def get_ultima_mnsg(usuario):
+        try:
+
+            conexao_db = Connection.create()
+
+            cursor = conexao_db.cursor()
+
+            cursor.execute('SELECT nome, comentario FROM tb_comentarios WHERE nome = %s', (usuario,))
+
+            ultimo_comentario = cursor.fetchone()
+
+            conexao_db.commit()
+
+            cursor.close()
+
+            conexao_db.close()
+
+            return ultimo_comentario
+        
+        except:
+
+            return False

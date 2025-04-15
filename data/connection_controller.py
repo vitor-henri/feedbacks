@@ -3,7 +3,7 @@ import mysql.connector
 class Connection:
 
     def create():
-        if True:    
+        if False:    
             return mysql.connector.connect( 
 
                 host='10.110.134.2', 
@@ -19,6 +19,6 @@ class Connection:
                 host='localhost',
                 port=3306,
                 user='root',
-                password='root'
+                password='root',
                 database='db_feedback'
             )

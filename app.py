@@ -1,5 +1,5 @@
 # Dev by Vitor
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, jsonify
 from model.coment_controller import Comment
 from model.user_controller import User
 
@@ -71,7 +71,7 @@ def curtir_mensagem(codigo):
     Comment.curtir_mensagem(codigo)
     return redirect("/")
 
-@app.route("/login")
+@app.route("/login", methods=["POST"])
 def pag_inicial():
     return render_template("main.html")
 
@@ -88,5 +88,16 @@ def post_logar():
     else:
         return redirect("/login")
     
+@app.route("/api/get/mensagens")
+def api_mensagens():
+    mensagens = Comment.get_comentarios()
+    return jsonify(mensagens)
+
+@app.route("/api/get/ultima_mnsg/<usuario>")
+def mnsg_usuario(usuario):
+    mensagem = Comment.get_ultima_mnsg(usuario)
+    return jsonify(mensagem)
+
+
 if __name__ == "__main__":
         app.run(debug=True, host='0.0.0.0', port=8080)

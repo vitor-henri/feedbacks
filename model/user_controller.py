@@ -33,7 +33,8 @@ class User:
             cursor = conexao_db.cursor()
 
             senha = sha256(senha.encode()).hexdigest()
-            cursor.execute("SELECT * FROM tb_usuarios WHERE login = %s AND bynary senha = %s;", (login, senha))
+            
+            cursor.execute("SELECT * FROM tb_usuarios WHERE login = %s AND binary senha = %s;", (login, senha))
 
             resultado = cursor.fetchone()
 
