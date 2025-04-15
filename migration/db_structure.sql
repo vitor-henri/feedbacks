@@ -1,11 +1,17 @@
-CREATE DATABASE IF NOT EXISTS db_feedback;
+create database db_feedback;
+use db_feedback;
 
-USE db_feedback;
-
-CREATE TABLE IF NOT EXISTS tb_feedback (
-	code_user INT PRIMARY KEY AUTO_INCREMENT,
-	name_user VARCHAR(150) NOT NULL,
-    comentario TEXT NOT NULL,
-    data_comentario DATETIME DEFAULT NOW()
+create table tb_comentarios (
+ nome varchar(150) not null,
+ data_hora datetime not null,
+ comentario text not null,
+ cod_comentario int auto_increment primary key,
+ curtidas int default 0
 );
 
+
+CREATE TABLE tb_usuarios (
+	login varchar(25) primary key,
+    senha varchar(150) not null,
+    nome varchar (50) not null
+    );

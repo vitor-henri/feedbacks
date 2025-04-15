@@ -1,6 +1,7 @@
 <!-- Dev by vitor -->
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,50 +12,58 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
 
     <!-- Estilização da página -->
-    
+
     <link rel="stylesheet" href="{{ url_for('static', filename='style/login.css') }}" />
     <link rel="stylesheet" href="../static/style/login.css">
 </head>
+
 <body>
 
     <section class="main">
+        <section class="main__site">
 
-        <header class="main__header">
+            <header class="main__header">
 
-            <h1>Bem-vindo(a) Faça Login ou Cadastre-se</h1>
+                <h1>Bem-vindo(a) Faça Login ou Cadastre-se</h1>
 
-        </header>
+            </header>
 
-        <main class="main__page">
+            <main class="main__page">
 
-            <form class="page__form" action="/login" method="post">
+                <form class="page__form" action="/login" method="post">
 
-                <label class="form__label" for="input__user">Usuário</label>
-                <input class="form__input" type="text" name="input__user" placeholder="Digite seu nome de usuario" maxlength="150">
-                
-                <label class="form__label" for="input__senha">Senha</label>
-                <input class="form__input" type="password" name="input__senha" placeholder="Digite sua senha">
+                    <label class="form__label" for="input__user">Usuário</label>
+                    <input class="form__input" type="text" name="input__user" placeholder="Digite seu nome de usuario"
+                        maxlength="150">
 
-                <!-- Formulário de login -->
-                <button type="submit">Logar</button>
-                
-            </form>
+                    <label class="form__label" for="input__senha">Senha</label>
+                    <input class="form__input" type="password" name="input__senha" placeholder="Digite sua senha">
 
-            <form class="page__cadastrar" action="/cadastro" method="get">
-                <div class="page__cadastro">
-                    <button class="cadastro__btn" type="submit">Cadastre-se</button>
-                </div>
-            </form>
+                    <!-- Formulário de login -->
+                    <button class="btn login__btn" type="submit">Logar</button>
 
-        </main>
+                </form>
 
-        <footer class="rodape">
-            <span>&copf; Developed by Vitor</span>
-        </footer>
+                <form class="page__cadastrar" action="/cadastro" method="get">
+                    <div class="page__cadastro">
+                        <span>Não tem uma conta? Cadastre-se</span>
+                        <button class="btn cadastro__btn" type="submit">Cadastre-se</button>
+                    </div>
+                </form>
+
+            </main>
+
+            <footer class="rodape">
+                <span>&copf; Developed by Vitor</span>
+            </footer>
+
+        </section>
     </section>
-    
+
 </body>
+
 </html>

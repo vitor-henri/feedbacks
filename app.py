@@ -19,8 +19,7 @@ def pag_login():
 @app.route("/cadastro", methods=["GET"])
 def pag_cadastro():
     return render_template("cadastro.html")
-    
-    
+
 @app.route("/post/cadastro", methods=["POST"])
 def cadastro_usuario():
     
